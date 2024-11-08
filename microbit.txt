@@ -1,0 +1,13 @@
+Steps = 0
+basic.show_number(0)
+
+def on_forever():
+    global Steps
+    if input.acceleration(Dimension.STRENGTH) > 1500:
+        Steps += 1
+        basic.show_number(Steps)
+        
+        # A cada 1 passo, enviamos uma mensagem pela serial
+        serial.write_value("", Steps)
+            
+basic.forever(on_forever)
